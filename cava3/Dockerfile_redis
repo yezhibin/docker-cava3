@@ -1,0 +1,13 @@
+FROM ubuntu:22.04
+
+WORKDIR /usr/local/redis
+COPY redis /usr/local/redis/
+COPY common/*.sh /usr/local/redis/
+RUN sh change2bash.sh
+RUN sh changezone.sh
+RUN sh fix_ubuntu_han.sh
+RUN cd bin \
+    && chmod 755 libatomic.so.* \ 
+    && cp -rf libatomic.so.* /usr/lib/aarch64-linux-gnu/
+
+ENTRYPOINT ["/usr/local/redis/bin/redis-server", "/usr/local/redis/conf/redis.conf"]

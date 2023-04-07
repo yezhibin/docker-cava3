@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<server>
+		<!--填服务器ip或域名-->
+		<ip>cava3_openapi_1</ip>
+		<!--填http服务器端口-->
+		<httpport>9030</httpport>
+		<username>cava</username>
+		<password>12345678</password>
+		<!--登录超时时间，可以是小数，单位为秒-->
+		<waittime>3</waittime>
+		<!--登录最大尝试次数-->
+		<trytimes>3</trytimes>
+	</server>
+	<auth>
+		<app_id>7ff5d57acfbb</app_id>
+		<app_secret>4cb6653fd5f62bc7b223c613fee0464a</app_secret>
+	</auth>
+	<task>
+		<name>CavaSvrProxy_Api</name>
+		<dir>/usr/local/bin/CAVA3/CAVA_SPACE3/testcases/Camera_Dome/05-Product/CavaSvrProxy_Api</dir>
+		<data>
+			<!--测试用例路径-->
+			<path>DeviceList.xls</path>
+			<!--服务端存在同名文件时，是否强制上传 1:是 0:否-->
+			<force_upload>1</force_upload>
+		</data>
+		<mail_addr>905406533@qq.com;yzbemail@sina.cn</mail_addr>
+		<!--任务通过率100%时，是否阻断发送邮件-->
+		<block_pass_mail>0</block_pass_mail>
+		<sys_type>linux</sys_type>
+	</task>
+</config>

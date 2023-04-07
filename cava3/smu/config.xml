@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+        <server>
+                <!--填服务器ip或域名-->
+                <ip>0.0.0.0</ip>
+                <port>10008</port>
+                <username>cava</username>
+                <password>12345678</password>
+                <http_ip>cava3_proxy_1</http_ip>
+                <!--CavaSvrProxy server port-->
+                <http_port>9010</http_port>
+                <api_port>10010</api_port>
+                <mail>
+                        <username>qftech@yeah.net</username>
+                        <password>UGMFSLBTPEIVHELH</password>
+                        <!--smtp服务器-->
+                        <host>smtp.yeah.net</host>
+                        <port>25</port>
+                </mail>
+        </server>
+</config>

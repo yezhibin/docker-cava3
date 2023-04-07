@@ -1,0 +1,5 @@
+commit 470225a88c4068f76c1fe7d9f27ceb3ceb6f1d2c
+Author: zoudaohoutian <yzbemail@sina.cn>
+Date:   Thu Mar 16 20:00:46 2023 +0800
+
+    [MOD][NORMAL]smu hhtp post客户端封装，增加打印响应码和traceID

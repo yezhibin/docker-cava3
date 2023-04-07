@@ -1,0 +1,75 @@
+version: "3"
+
+services:
+  mysql:
+   build:
+     context: ""
+     dockerfile: Dockerfile_mysql
+   image: mysql:1.0
+   environment:
+     TZ: ${TZ:-Asia/Shanghai}
+     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-123456}
+   command: --innodb_use_native_aio=0
+   ports:
+     - 3306:3306
+
+  redis:
+    build:
+      context: ""
+      dockerfile: Dockerfile_redis
+    image: redis:1.0
+    ports:
+      - 6379:6379
+
+  proxy:
+    build:
+      context: ""
+      dockerfile: Dockerfile_proxy
+    image: proxy:1.0
+    depends_on:
+      - redis
+      - mysql
+    ports:
+      - 9010:9010
+
+  smu:
+    build:
+      context: ""
+      dockerfile: Dockerfile_smu
+    image: smu:1.0
+    depends_on:
+      - proxy
+    ports:
+      - 10008:10008
+      - 10010:10010
+
+  openapi:
+    build:
+      context: ""
+      dockerfile: Dockerfile_openapi
+    image: openapi:1.0
+    depends_on:
+      - smu
+      - mysql
+    ports:
+      - 9030:9030
+
+  teu:
+    build:
+      context: ""
+      dockerfile: Dockerfile_teu
+    image: teu:1.0
+    environment:
+      PATH: ${PATH:-}
+      LD_LIBRARY_PATH: ${LD_LIBRARY_PATH:-}
+      USER: root
+    depends_on:
+      - smu
+
+  openclient:
+    build:
+      context: ""
+      dockerfile: Dockerfile_openclient
+    image: openclient:1.0
+    depends_on:
+      - openapi

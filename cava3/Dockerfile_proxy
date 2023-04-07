@@ -1,0 +1,11 @@
+FROM ubuntu:22.04
+
+WORKDIR /opt/cava3svrproxy
+COPY cava3svrproxy /opt/cava3svrproxy/
+COPY common/*.sh /opt/cava3svrproxy/
+RUN sh change2bash.sh
+RUN sh changezone.sh
+RUN sh fix_ubuntu_han.sh
+RUN sh libreoffice_install.sh
+
+ENTRYPOINT ["/opt/cava3svrproxy/CavaSvrProxy"]

@@ -1,0 +1,18 @@
+FROM daocloud.io/library/mysql:8
+
+ENV WORK_PATH /usr/local/work
+ENV AUTO_RUN_DIR /docker-entrypoint-initdb.d
+
+ENV FILE_0  allow.sql
+ENV FILE_1  init.sql
+ENV ALLOW_REMOTE_CONN_SHELL allow_remote_conn.sh
+ENV INSTALL_DATA_SHELL install_data.sh
+
+RUN mkdir -p $WORK_PATH
+COPY ./mysql/$FILE_0 $WORK_PATH/
+COPY ./mysql/$FILE_1 $WORK_PATH/
+COPY ./mysql/$ALLOW_REMOTE_CONN_SHELL $AUTO_RUN_DIR/
+COPY ./mysql/$INSTALL_DATA_SHELL $AUTO_RUN_DIR/
+EXPOSE 3306
+RUN chmod a+x $AUTO_RUN_DIR/$ALLOW_REMOTE_CONN_SHELL
+RUN chmod a+x $AUTO_RUN_DIR/$INSTALL_DATA_SHELL
