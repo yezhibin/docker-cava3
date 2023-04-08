@@ -1,4 +1,4 @@
-FROM daocloud.io/library/mysql:8
+FROM mysql:8
 
 ENV WORK_PATH /usr/local/work
 ENV AUTO_RUN_DIR /docker-entrypoint-initdb.d
