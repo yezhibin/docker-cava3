@@ -12,8 +12,11 @@
                 <api_port>10010</api_port>
                 <mail>
                         <username>qftech@yeah.net</username>
-                        <password>UGMFSLBTPEIVHELH</password>
-                        <!--smtp服务器-->
+                        <password>
+                                <encrypt>true</encrypt>
+                                <value>QFTECHATCi4J4Gbr8ysjJIm5GEx+q3dhsUM0MPfg0qubC7OwO/XpGrQMuwb0jzxwedwR9X</value>
+                        </password>
+			<!--smtp服务器-->
                         <host>smtp.yeah.net</host>
                         <port>25</port>
                 </mail>
