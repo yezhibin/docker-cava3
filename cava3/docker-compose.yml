@@ -72,6 +72,7 @@ services:
       USER: root
     depends_on:
       - smu
+    restart: always
 
   openclient:
     container_name: cava3_openclient_1
