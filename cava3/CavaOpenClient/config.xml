@@ -27,7 +27,7 @@
 		</data>
 		<mail_addr>905406533@qq.com;yzbemail@sina.cn</mail_addr>
 		<!--任务通过率100%时，是否阻断发送邮件-->
-		<block_pass_mail>0</block_pass_mail>
+		<block_pass_mail>1</block_pass_mail>
 		<sys_type>linux</sys_type>
 	</task>
 </config>
