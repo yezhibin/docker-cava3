@@ -30,6 +30,8 @@ services:
       context: ""
       dockerfile: Dockerfile_proxy
     image: proxy:1.0
+    volumes:
+      - /opt/cava3/cava3svrproxy/log:/opt/cava3svrproxy/log
     depends_on:
       - redis
       - mysql
@@ -43,6 +45,8 @@ services:
       context: ""
       dockerfile: Dockerfile_smu
     image: smu:1.0
+    volumes:
+      - /opt/cava3/CavaCloudServer/smu/log:/opt/CavaCloudServer/smu/log
     depends_on:
       - proxy
     ports:
@@ -55,6 +59,8 @@ services:
       context: ""
       dockerfile: Dockerfile_openapi
     image: openapi:1.0
+    volumes:
+      - /opt/cava3/cavaopenapi/smu/log:/opt/cavaopenapi/smu/log
     depends_on:
       - smu
       - mysql
@@ -72,6 +78,8 @@ services:
       PATH: ${CAVA_PATH}
       LD_LIBRARY_PATH: ${CAVA_LD_LIBRARY_PATH}
       USER: root
+    volumes:
+      - /opt/cava3/CavaCloudServer/teu/log:/opt/CavaCloudServer/teu/log
     depends_on:
       - smu
     restart: always
@@ -82,5 +90,7 @@ services:
       context: ""
       dockerfile: Dockerfile_openclient
     image: openclient:1.0
+    volumes:
+      - /opt/cava3/CavaOpenClient/smu/log:/opt/CavaOpenClient/smu/log
     depends_on:
       - openapi
