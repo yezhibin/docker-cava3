@@ -14,6 +14,7 @@ services:
    command: --innodb_use_native_aio=0
    ports:
      - 13306:3306
+   restart: always
 
   redis:
     container_name: cava3_redis_1
@@ -32,6 +33,7 @@ services:
     image: proxy:1.0
     volumes:
       - /opt/cava3/cava3svrproxy/log:/opt/cava3svrproxy/log
+      - /opt/cava3/cava3svrproxy/cava3/outputs/log:/opt/cava3svrproxy/cava3/outputs/log
     depends_on:
       - redis
       - mysql
@@ -60,7 +62,7 @@ services:
       dockerfile: Dockerfile_openapi
     image: openapi:1.0
     volumes:
-      - /opt/cava3/cavaopenapi/smu/log:/opt/cavaopenapi/smu/log
+      - /opt/cava3/cavaopenapi/log:/opt/cavaopenapi/log
     depends_on:
       - smu
       - mysql
@@ -91,6 +93,6 @@ services:
       dockerfile: Dockerfile_openclient
     image: openclient:1.0
     volumes:
-      - /opt/cava3/CavaOpenClient/smu/log:/opt/CavaOpenClient/smu/log
+      - /opt/cava3/CavaOpenClient/log:/opt/CavaOpenClient/log
     depends_on:
       - openapi

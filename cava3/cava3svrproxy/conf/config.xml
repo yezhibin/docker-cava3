@@ -3,8 +3,8 @@
         <server>
                 <!--填服务器ip或域名-->
                 <ip>0.0.0.0</ip>
-                <wan_ip>180.76.144.58</wan_ip>
-                <!--http文件下载是否使用外网ip-->
+                <agent_host>http://180.76.144.58:9010</agent_host>
+                <!--http文件下载是否使用外网agent_host-->
                 <enable>1</enable>
                 <!--填服务器web端口-->
                 <port>9010</port>
