@@ -13,5 +13,6 @@
         <client>
                 <teuid>teu_001</teuid>
                 <systype>linux</systype>
+                <timeout>3600</timeout>
         </client>
 </config>
