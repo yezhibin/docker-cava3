@@ -7,7 +7,7 @@ services:
    build:
      context: ""
      dockerfile: Dockerfile_mysql
-   image: mysql:1.0
+   image: mysql8:1.0
    environment:
      TZ: ${TZ:-Asia/Shanghai}
      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-123456}
@@ -32,8 +32,8 @@ services:
       dockerfile: Dockerfile_proxy
     image: proxy:1.0
     volumes:
-      - /opt/cava3/cava3svrproxy/log:/opt/cava3svrproxy/log
-      - /opt/cava3/cava3svrproxy/cava3/outputs/log:/opt/cava3svrproxy/cava3/outputs/log
+      - ${CAVA3_LOG_SPACE}/log/cava3svrproxy/log:/opt/cava3svrproxy/log
+      - ${CAVA3_LOG_SPACE}/log/cava3svrproxy/cava3/outputs/log:/opt/cava3svrproxy/cava3/outputs/log
     depends_on:
       - redis
       - mysql
@@ -48,7 +48,7 @@ services:
       dockerfile: Dockerfile_smu
     image: smu:1.0
     volumes:
-      - /opt/cava3/CavaCloudServer/smu/log:/opt/CavaCloudServer/smu/log
+      - ${CAVA3_LOG_SPACE}/log/CavaCloudServer/smu/log:/opt/CavaCloudServer/smu/log
     depends_on:
       - proxy
     ports:
@@ -62,7 +62,7 @@ services:
       dockerfile: Dockerfile_openapi
     image: openapi:1.0
     volumes:
-      - /opt/cava3/cavaopenapi/log:/opt/cavaopenapi/log
+      - ${CAVA3_LOG_SPACE}/log/cavaopenapi/log:/opt/cavaopenapi/log
     depends_on:
       - smu
       - mysql
@@ -81,7 +81,7 @@ services:
       LD_LIBRARY_PATH: ${CAVA_LD_LIBRARY_PATH}
       USER: root
     volumes:
-      - /opt/cava3/CavaCloudServer/teu/log:/opt/CavaCloudServer/teu/log
+      - ${CAVA3_LOG_SPACE}/log/CavaCloudServer/teu/log:/opt/CavaCloudServer/teu/log
     depends_on:
       - smu
     restart: always
@@ -93,6 +93,6 @@ services:
       dockerfile: Dockerfile_openclient
     image: openclient:1.0
     volumes:
-      - /opt/cava3/CavaOpenClient/log:/opt/CavaOpenClient/log
+      - ${CAVA3_LOG_SPACE}/log/CavaOpenClient/log:/opt/CavaOpenClient/log
     depends_on:
       - openapi

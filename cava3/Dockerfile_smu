@@ -1,12 +1,6 @@
-FROM ubuntu:22.04
+FROM cava3_base:1.0.0
 
 WORKDIR /opt/CavaCloudServer/smu
 COPY smu /opt/CavaCloudServer/smu/
-COPY common/*.sh /opt/CavaCloudServer/smu/
-RUN sh change2bash.sh
-RUN sh changesrc.sh
-RUN sh changezone.sh
-RUN sh fix_ubuntu_han.sh \
-    && apt-get install -y --no-install-recommends ca-certificates curl
 
 ENTRYPOINT ["/opt/CavaCloudServer/smu/cava_smu"]

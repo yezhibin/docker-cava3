@@ -16,5 +16,5 @@ else
     echo "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
 fi
 
-apt-get update
+apt update
 

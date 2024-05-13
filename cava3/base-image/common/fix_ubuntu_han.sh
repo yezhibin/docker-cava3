@@ -1,7 +1,7 @@
 #!/bin/sh
 
-apt-get install -y language-pack-zh-hans
-apt-get install -y fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
+apt install -y language-pack-zh-hans
+apt install -y fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
 
 apt install -y locales
 

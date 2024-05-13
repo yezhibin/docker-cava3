@@ -39,5 +39,6 @@ echo "export LD_LIBRARY_PATH=/usr/local/bin/CAVA3/Python37/lib:/usr/local/bin/CA
 echo "source ~/.bashrc" >> /etc/profile
 
 sed -i "s/9000/9010/g" /usr/local/bin/CAVA3/CAVA_SPACE3/src/tools/config.xml
+sed -i "s/180.76.144.58/cava3_proxy_1/g" /usr/local/bin/CAVA3/CAVA_SPACE3/src/tools/config.xml
 
 echo "[${time}][info] ${mode_branch} install cava3 success."

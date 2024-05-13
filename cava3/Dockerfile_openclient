@@ -1,12 +1,7 @@
-FROM ubuntu:22.04
+FROM cava3_base:1.0.0
 
 WORKDIR /opt/CavaOpenClient
 COPY CavaOpenClient /opt/CavaOpenClient/
-COPY common/*.sh /opt/CavaOpenClient/
-RUN sh change2bash.sh
-RUN sh changesrc.sh
-RUN sh changezone.sh
-RUN sh fix_ubuntu_han.sh \
-    && apt-get install -y cron
+RUN apt install -y cron
 
 ENTRYPOINT ["/opt/CavaOpenClient/init.sh"]
