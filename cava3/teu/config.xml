@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+        <server>
+                <!--填服务器ip或域名,正式使用外网IP-->
+                <ip>cava3_smu_1</ip>
+                <port>10008</port>
+                <username>cava</username>
+                <password>12345678</password>
+                <httpip>cava3_proxy_1</httpip>
+                <httpport>9010</httpport>
+                <webdir>/opt/cava3svrproxy</webdir>
+        </server>
+        <client>
+                <teuid>teu_001</teuid>
+                <systype>linux</systype>
+                <timeout>3600</timeout>
+        </client>
+</config>

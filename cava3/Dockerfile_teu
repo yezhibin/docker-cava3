@@ -1,0 +1,8 @@
+FROM cava3_base:1.0.0
+
+WORKDIR /opt/CavaCloudServer/teu
+COPY teu /opt/CavaCloudServer/teu/
+RUN apt install -y git curl\
+    && sh cava3_debian_install.sh
+
+ENTRYPOINT ["/opt/CavaCloudServer/teu/cava_teu"]

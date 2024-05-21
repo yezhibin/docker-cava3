@@ -1,0 +1,7 @@
+FROM cava3_base:1.0.0
+
+WORKDIR /opt/cava3svrproxy
+COPY cava3svrproxy /opt/cava3svrproxy/
+RUN sh libreoffice_install.sh
+
+ENTRYPOINT ["/opt/cava3svrproxy/CavaSvrProxy"]

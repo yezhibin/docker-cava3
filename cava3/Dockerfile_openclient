@@ -1,0 +1,7 @@
+FROM cava3_base:1.0.0
+
+WORKDIR /opt/CavaOpenClient
+COPY CavaOpenClient /opt/CavaOpenClient/
+RUN apt install -y cron
+
+ENTRYPOINT ["/opt/CavaOpenClient/init.sh"]

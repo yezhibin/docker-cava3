@@ -1,0 +1,98 @@
+version: "3"
+
+services:
+  mysql:
+   container_name: cava3_mysql_1
+   platform: linux/amd64
+   build:
+     context: ""
+     dockerfile: Dockerfile_mysql
+   image: mysql8:1.0
+   environment:
+     TZ: ${TZ:-Asia/Shanghai}
+     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-123456}
+   command: --innodb_use_native_aio=0
+   ports:
+     - 13306:3306
+   restart: always
+
+  redis:
+    container_name: cava3_redis_1
+    build:
+      context: ""
+      dockerfile: Dockerfile_redis
+    image: redis:1.0
+    ports:
+      - 6379:6379
+
+  proxy:
+    container_name: cava3_proxy_1
+    build:
+      context: ""
+      dockerfile: Dockerfile_proxy
+    image: proxy:1.0
+    volumes:
+      - ${CAVA3_LOG_SPACE}/log/cava3svrproxy/log:/opt/cava3svrproxy/log
+      - ${CAVA3_LOG_SPACE}/log/cava3svrproxy/cava3/outputs/log:/opt/cava3svrproxy/cava3/outputs/log
+    depends_on:
+      - redis
+      - mysql
+    ports:
+      - 9010:9010
+    restart: always
+
+  smu:
+    container_name: cava3_smu_1
+    build:
+      context: ""
+      dockerfile: Dockerfile_smu
+    image: smu:1.0
+    volumes:
+      - ${CAVA3_LOG_SPACE}/log/CavaCloudServer/smu/log:/opt/CavaCloudServer/smu/log
+    depends_on:
+      - proxy
+    ports:
+      - 10008:10008
+      - 10010:10010
+
+  openapi:
+    container_name: cava3_openapi_1
+    build:
+      context: ""
+      dockerfile: Dockerfile_openapi
+    image: openapi:1.0
+    volumes:
+      - ${CAVA3_LOG_SPACE}/log/cavaopenapi/log:/opt/cavaopenapi/log
+    depends_on:
+      - smu
+      - mysql
+    ports:
+      - 9030:9030
+    restart: always
+
+  teu:
+    container_name: cava3_teu_1
+    build:
+      context: ""
+      dockerfile: Dockerfile_teu
+    image: teu:1.0
+    environment:
+      PATH: ${CAVA_PATH}
+      LD_LIBRARY_PATH: ${CAVA_LD_LIBRARY_PATH}
+      USER: root
+    volumes:
+      - ${CAVA3_LOG_SPACE}/log/CavaCloudServer/teu/log:/opt/CavaCloudServer/teu/log
+    depends_on:
+      - smu
+    restart: always
+
+  openclient:
+    container_name: cava3_openclient_1
+    build:
+      context: ""
+      dockerfile: Dockerfile_openclient
+    image: openclient:1.0
+    volumes:
+      - ${CAVA3_LOG_SPACE}/log/CavaOpenClient/log:/opt/CavaOpenClient/log
+    depends_on:
+      - openapi

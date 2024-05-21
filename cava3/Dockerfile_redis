@@ -1,0 +1,6 @@
+FROM cava3_base:1.0.0
+
+WORKDIR /usr/local/redis
+COPY redis /usr/local/redis/
+
+ENTRYPOINT ["/usr/local/redis/bin/redis-server", "/usr/local/redis/conf/redis.conf"]

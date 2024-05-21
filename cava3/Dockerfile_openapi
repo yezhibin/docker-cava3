@@ -1,0 +1,6 @@
+FROM cava3_base:1.0.0
+
+WORKDIR /opt/cavaopenapi
+COPY cavaopenapi /opt/cavaopenapi/
+
+ENTRYPOINT ["/opt/cavaopenapi/CavaOpenAPI"]

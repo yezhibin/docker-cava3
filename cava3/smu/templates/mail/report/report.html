@@ -1,0 +1,33 @@
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+ </head>
+ <body> 
+  <style>table{font-size:14px;}</style> 
+  <div align="center"> 
+   <font color="#525252"> 
+    <table border="0" style="table-layout:fixed" cellspacing="2" cellpadding="2" width="900"> 
+     <tbody>
+      <tr bgcolor="#5cb85c"> 
+       <th align="left" style="font-size:23px;">cava任务报告</th>  
+      </tr> 
+      <tr>
+       <td align="left" style="WORD-WRAP:break-word"><b>任务名称:</b> {{.taskName}} </td> 
+      </tr> 
+      <tr>
+       <td align="left" style="WORD-WRAP:break-word">通过率: {{.taskPassRate}} </td> 
+      </tr> 
+      <tr>
+       <td align="left" style="WORD-WRAP:break-word">任务ID: {{.taskID}}</td> 
+      </tr> 
+      <tr>
+       <td align="left" style="WORD-WRAP:break-word">任务报告: <a href="{{.taskReport}}">请点击</a> </td> 
+      </tr> 
+      <tr>
+       <td align="left" style="WORD-WRAP:break-word">任务日志: <a href="{{.taskLog}}">请点击</a> </td> 
+      </tr> 
+     </tbody>
+    </table> <p>此邮件为cava平台自动发送，请勿回复!</p>   </font>
+  </div>
+ </body>
+</html>

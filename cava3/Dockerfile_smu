@@ -1,0 +1,6 @@
+FROM cava3_base:1.0.0
+
+WORKDIR /opt/CavaCloudServer/smu
+COPY smu /opt/CavaCloudServer/smu/
+
+ENTRYPOINT ["/opt/CavaCloudServer/smu/cava_smu"]

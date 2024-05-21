@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>bungzoo导航</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        .nav {
+            /*声明展示类型以table来渲染显示*/
+            display: table;
+            width: 100%;
+        }
+        .nav a {
+            /*声明展示类型以table的单元格来渲染显示*/
+            display: table-cell;
+            width: 50%;
+            height: 100px;
+            border-left: 1px solid #999;
+            background-color: #cceaff;
+            line-height: 600px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .nav a:first-child {
+            /*第一个导航的border清除掉*/
+            border-left: 0 none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="http://180.76.144.58:8090/#/login" title="">帮租租房, 戳这里>>></a>
+    </div>
+</body>
+</html>
