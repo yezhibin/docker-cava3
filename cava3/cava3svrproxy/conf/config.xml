@@ -46,7 +46,7 @@
                 <username>root</username>
                 <password>
                         <encrypt>true</encrypt>
-                        <value>QFTECHulD37kCROttW7Ip11b4DM11k8BbGO03jKMSNpH9ELv4=</value>
+                        <value>QFTECHmjdEn1FIj6bLEcXf+dAE2+eWXADMtMjvw2nNWvS7fy8=</value>
                 </password>
                 <dbname>db_house_sys</dbname>
                 <debug>true</debug>
