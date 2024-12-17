@@ -10,7 +10,7 @@ services:
    image: mysql8:1.0
    environment:
      TZ: ${TZ:-Asia/Shanghai}
-     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-123456}
+     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qftech123.}
    command: --innodb_use_native_aio=0
    ports:
      - 13306:3306
