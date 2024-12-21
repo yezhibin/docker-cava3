@@ -3,7 +3,7 @@
         <server>
                 <!--填服务器ip或域名-->
                 <ip>0.0.0.0</ip>
-                <agent_host>http://180.76.144.58:9010</agent_host>
+                <agent_host>http://cava3_proxy_1:9010</agent_host>
                 <!--http文件下载是否使用外网agent_host-->
                 <enable>1</enable>
                 <!--填服务器web端口-->
