@@ -20,6 +20,7 @@
                 <auth_enable>true</auth_enable>
                 <proxyuri>GET /notice</proxyuri>
                 <proxyuri>GET /cava3/task/{uid:string}</proxyuri>
+                <proxyuri>GET /cava3/tasks/info</proxyuri>
                 <!-- <proxyuri>POST /cava3/upload</proxyuri> -->
         </client>
         <mysql>
